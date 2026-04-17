@@ -325,7 +325,6 @@ public class ControllerHandler extends BaseBridgeHandler implements MatterClient
 
         return client.initializeNode(id, CONNECTION_TIMEOUT_MS).thenAccept((Void) -> {
             disconnectedNodes.remove(id);
-            client.requestAllNodeData(id);
             logger.debug("updateNode END {}", id);
         }).exceptionally(e -> {
             logger.debug("Could not update node {}", id, e);
